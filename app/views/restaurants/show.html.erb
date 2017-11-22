@@ -1,0 +1,20 @@
+<h1 class="well"><%= @restaurant.name %></h1>
+<p class="well"><%= @restaurant.category %></p>
+<p class="well"><%= @restaurant.address %></p>
+<p class="well"><%= @restaurant.phone_number %></p>
+<ul class="well">
+  Ratings:
+  <% @restaurant.reviews.each do |review| %>
+    <li><%= review.content %> | <%= review.rating %> <i class="fa fa-star"></i></li>
+  <% end %>
+</ul>
+
+<%= link_to restaurants_path, class: 'btn btn-primary' do %>
+  <i class="fa fa-history"></i>
+<% end %>
+<%= link_to new_restaurant_review_path(@restaurant.id), class: 'btn btn-primary' do %>
+  <i class="fa fa-star"></i>
+<% end %>
+<%= link_to edit_restaurant_path(@restaurant.id), class: 'btn btn-primary' do %>
+  <i class="fa fa-pencil"></i>
+<% end %>
